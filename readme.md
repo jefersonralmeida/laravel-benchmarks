@@ -15,7 +15,9 @@ project.
 On the root of this project, you have a json file, that can be used as payload for the 
 create and update requests.
 
-We also have a fresh install of both frameworks, for comparison.
+We also have a fresh install of both frameworks, for comparison. On this case, for
+Laravel, we just removed the throttle protection (to allow the benchmark) and 
+included a closure based route that just return the framework version (like Lumen have).
 
 To serve the application you can use a Homestead machine, or host it on a cloud service.
 
@@ -27,36 +29,36 @@ or Postman.
 
 Below you can see suggestions for benchmarks commands (using Apache Bench).
 
-All commands send 500 requests, always with 10 concurrent connections. The domains can 
+All commands send 1000 requests, always with 10 concurrent connections. The domains can 
 be changed to fir you environment definitions.
 
 Request que fresh frameworks
 ```
-ab -n 500 -c 10 http://fresh-lumen.local:80/
-ab -n 500 -c 10 http://fresh-laravel.local:80/
+ab -n 1000 -c 10 http://fresh-lumen.local:80/
+ab -n 1000 -c 10 http://fresh-laravel.local:80/
 ```
 
 Paginated index of customers:
 ```
-ab -n 500 -c 10 http://lumen.local:80/customers
-ab -n 500 -c 10 http://laravel.local:80/customers
+ab -n 1000 -c 10 http://lumen.local:80/customers
+ab -n 1000 -c 10 http://laravel.local:80/customers
 ```
 
 View of a single customer:
 ```
-ab -n 500 -c 10 http://lumen.local:80/customers/30
-ab -n 500 -c 10 http://laravel.local:80/customers/30
+ab -n 1000 -c 10 http://lumen.local:80/customers/30
+ab -n 1000 -c 10 http://laravel.local:80/customers/30
 ```
 
 Create new customers:
 ```
-ab -n 500 -c 10 -p payload.json -T application/json http://laravel.local:80/customers
-ab -n 500 -c 10 -p payload.json -T application/json http://lumen.local:80/customers
+ab -n 1000 -c 10 -p payload.json -T application/json http://lumen.local:80/customers
+ab -n 1000 -c 10 -p payload.json -T application/json http://laravel.local:80/customers
 ```
 
 Update a customer
 ```
-ab -n 500 -c 10 -u payload.json -T application/json http://laravel.local:80/customers/30
-ab -n 500 -c 10 -u payload.json -T application/json http://lumen.local:80/customers/30
+ab -n 1000 -c 10 -u payload.json -T application/json http://lumen.local:80/customers/30
+ab -n 1000 -c 10 -u payload.json -T application/json http://laravel.local:80/customers/30
 ```
 
