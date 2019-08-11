@@ -19,6 +19,9 @@ We also have a fresh install of both frameworks, for comparison.
 
 To serve the application you can use a Homestead machine, or host it on a cloud service.
 
+Remember that, if you're using a mapped folder, the results won't be accurate, because
+the loading from mapped folders can be slower than usual load.
+
 Before executing any benchmark, check if the requests are working correctly using curl
 or Postman.
 
