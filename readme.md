@@ -62,3 +62,8 @@ ab -n 1000 -c 10 -u payload.json -T application/json http://lumen.local:80/custo
 ab -n 1000 -c 10 -u payload.json -T application/json http://laravel.local:80/customers/30
 ```
 
+Or of course, you can avoid all this work, and just trust on my results, that you can find on
+this [article](https://medium.com/@jeffalmeida_27473/laravel-vs-lumen-what-should-i-use-63c196822b2d?sk=8061bad621bf8be80e554909e8fe9f8f).
+
+Maybe, if you like it, you could share it with your friends and give me some claps!
+
